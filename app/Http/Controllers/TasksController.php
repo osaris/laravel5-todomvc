@@ -9,20 +9,12 @@ use App\Http\Requests\TaskStoreRequest;
 
 class TasksController extends Controller
 {
-    private $tasks;
     
-    public function __construct() {
+    public function index( Request $request ) {
         
-        $this->tasks = collect([
-            ['id' => 2, 'name' => 'Learn Laravel', 'duration' => 12],
-            ['id' => 3, 'name' => 'Learn RubyOnRails', 'duration' => 24]
-        ])->keyBy('id');
-    }
-    
-    public function index() {
-        
-        //return view('tasks.index')->with('tasks', $this->tasks);
-        return view('tasks.index')->with('tasks', Task::all());
+        $done = $request->input('done', false);
+        $tasks = Task::done($done)->orderByDesc('created_at')->get();
+        return view('tasks.index')->with('tasks', $tasks);
     }
     
     public function show ( $id ) {

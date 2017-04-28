@@ -5,8 +5,9 @@
 @endsection
 
 @section('content')
-    <h2>Active tasks</h2>
-    
+    <span class="h2"><a href="{{ route('tasks.index') }}">Active tasks</a></span> / 
+    <span class="h3"><a href="{{ route('tasks.index', ['done' => true]) }}">Done tasks</a></span>
+    <div class="clearfix"></div>
     <a href="{{ route('tasks.create') }}" class="btn btn-primary">New task</a>
     
     <table class="table table-striped">
@@ -14,6 +15,7 @@
             <tr>
                 <td>Id</td>
                 <td>Name</td>
+                <td>Created at</td>
             </tr>            
         </thead>
         <tbody>
@@ -21,6 +23,7 @@
             <tr>
                 <td>{{ $task->id }}</td>
                 <td><a href="{{ route('tasks.show', $task) }}">{{ $task->name }}</a></td>
+                <td>{{ $task->created_at }}</td>
             </tr>     
             @endforeach
         </tbody>
