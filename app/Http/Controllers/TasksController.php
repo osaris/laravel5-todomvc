@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Task;
+use App\Http\Requests\TaskStoreRequest;
 
 class TasksController extends Controller
 {
@@ -36,7 +37,7 @@ class TasksController extends Controller
         return view('tasks.create');
     }
     
-    public function store ( Request $request ) {
+    public function store ( TaskStoreRequest $request ) {
         
         $task = Task::create($request->all());
         return redirect(route('tasks.index'));
