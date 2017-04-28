@@ -12,6 +12,11 @@
     <body>
         <div class="container">
             <h1><a href="{{ url('/') }}">TodoMVC</a></h1>
+            @if(Session::has('status'))
+                <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span>
+                    <em>{{ Session::get('status') }}</em>
+                </div>
+            @endif
             @yield('content')
         </div>
     </body>

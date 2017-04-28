@@ -16,6 +16,7 @@
                 <td>Id</td>
                 <td>Name</td>
                 <td>Created at</td>
+                <td></td>
             </tr>            
         </thead>
         <tbody>
@@ -24,6 +25,15 @@
                 <td>{{ $task->id }}</td>
                 <td><a href="{{ route('tasks.show', $task) }}">{{ $task->name }}</a></td>
                 <td>{{ $task->created_at }}</td>
+                <td>
+                    @if(!$task->done)
+                        <form method="POST" action="{{ route('tasks.update', $task) }}">
+                            <input type="hidden" name="_method" value="PUT">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-primary">Done</button>
+                        </form>
+                    @endif
+                </td>
             </tr>     
             @endforeach
         </tbody>

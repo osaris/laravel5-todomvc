@@ -34,4 +34,14 @@ class TasksController extends Controller
         $task = Task::create($request->all());
         return redirect(route('tasks.index'));
     }
+    
+    // route model binding
+    // see https://laravel.com/docs/5.4/routing#route-model-binding
+    public function update ( Request $request, Task $task ) {
+        
+        $task->done = true;
+        $task->save();
+        $request->session()->flash('status', 'Task done !');
+        return redirect(route('tasks.index', ['done' => true]));
+    }
 }
