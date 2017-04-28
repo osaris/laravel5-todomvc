@@ -20,7 +20,7 @@
             @foreach($tasks as $task)
             <tr>
                 <td>{{ $task->id }}</td>
-                <td><a href="{{ route('tasks.show', ['id' => $task['id']]) }}">{{ $task->name }}</a></td>
+                <td><a href="{{ route('tasks.show', $task) }}">{{ $task->name }}</a></td>
             </tr>     
             @endforeach
         </tbody>
