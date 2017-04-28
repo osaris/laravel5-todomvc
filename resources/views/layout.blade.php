@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>TodoMVC</h1>
+            <h1><a href="{{ url('/') }}">TodoMVC</a></h1>
             @yield('content')
         </div>
     </body>

@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <h2>Index</h2>
+    <h2>Active tasks</h2>
     
-    <a href="{{ route('tasks.create') }}">New task</a>
+    <a href="{{ route('tasks.create') }}" class="btn btn-primary">New task</a>
     
     <table class="table table-striped">
         <thead>

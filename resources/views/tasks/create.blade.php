@@ -10,6 +10,6 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Task name" value="{{ old('name') }}">
             {{ $errors->first('name') }}
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button> <a href="{{ route('tasks.index') }}" class="btn btn-default">Cancel</a>
     </form>
 @endsection
