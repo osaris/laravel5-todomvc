@@ -19,8 +19,11 @@ class TasksController extends Controller
     
     public function show ( $id ) {
         
-        // return view('tasks.show')->with('task', $this->tasks[$id]); 
-        $task = Task::find($id);
+        try {
+            $task = Task::findOrFail($id);
+        } catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return error(404);
+        }
         return view('tasks.show')->with('task', $task);
     }
     
