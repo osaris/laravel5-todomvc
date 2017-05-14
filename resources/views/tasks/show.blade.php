@@ -7,5 +7,5 @@
         <li>Name : {{ $task->name }}</li>
     </ul>
     
-    <a href="{{ route('tasks.index') }}" class="btn btn-default">Back</a>
+    <a href="{{ url()->previous() }}" class="btn btn-default">Back</a>
 @endsection
