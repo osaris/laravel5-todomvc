@@ -13,7 +13,7 @@ class TasksController extends Controller
     public function index( Request $request ) {
         
         $done = $request->input('done', false);
-        $tasks = Task::done($done)->orderByDesc('created_at')->get();
+        $tasks = Task::done($done)->orderByDesc('created_at')->paginate(15);
         return view('tasks.index')->with('tasks', $tasks);
     }
     
