@@ -11,6 +11,14 @@
 |
 */
 
-Route::resource('tasks', 'TasksController');
+/* hack to force prefix in testing environment to avoid problems with test suite
+   https://github.com/mcamara/laravel-localization/issues/161 */
+Route::group(['prefix' =>  (env('APP_ENV') === 'testing' ? 'en' : LaravelLocalization::setLocale()),
+              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect']], function()
+{
+    Route::resource('tasks', 'TasksController');
+});
 
-Route::get('/', 'TasksController@index');
+Route::get('/', function() {
+   return redirect(route('tasks.index')); 
+});
