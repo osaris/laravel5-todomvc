@@ -179,6 +179,7 @@ return [
         
         Barryvdh\Debugbar\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Themsaid\Langman\LangmanServiceProvider::class,
 
     ],
 
