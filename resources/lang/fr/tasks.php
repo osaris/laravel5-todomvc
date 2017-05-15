@@ -12,4 +12,6 @@ return [
     'taskname' => 'Nom de la tâche',
     'done_success' => 'Tâche effectuée !',
     'name_min' => 'Ce nom de tâche est vraiment trop court !',
+    'task' => 'Tâche',
+    'back' => 'Retour',
 ];

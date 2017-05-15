@@ -11,11 +11,15 @@
     </head>
     <body>
         <div class="container">
-            <h1><a href="{{ url('/') }}">TodoMVC</a></h1>
+            <h1><a href="{{ url('/') }}">TodoMVC</a></h1>                                    
+            <div>
+                <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">English</a> - 
+                <a href="{{ LaravelLocalization::getLocalizedURL('fr', null, [], true) }}">Français</a>
+            </div>
             @if(Session::has('status'))
-                <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span>
-                    <em>{{ Session::get('status') }}</em>
-                </div>
+            <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span>
+                <em>{{ Session::get('status') }}</em>
+            </div>
             @endif
             @yield('content')
         </div>
