@@ -31,7 +31,7 @@ class TaskStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.min' => 'This task name is really too short !'
+            'name.min' => \Lang::get('tasks.name_min'),
         ];
     }
 }

@@ -44,7 +44,7 @@ class TasksController extends Controller
         
         $task->done = true;
         $task->save();
-        $request->session()->flash('status', 'Task done !');
+        $request->session()->flash('status', \Lang::get('tasks.done_success'));
         return redirect(route('tasks.index', ['done' => true]));
     }
 }
